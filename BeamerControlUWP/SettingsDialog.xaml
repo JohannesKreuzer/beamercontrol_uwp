@@ -1,0 +1,24 @@
+﻿<ContentDialog
+    x:Class="BeamerControlUWP.SettingsDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BeamerControlUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Settings"
+    PrimaryButtonText="Save"
+    SecondaryButtonText="Cancel"
+    DefaultButton="Primary"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <StackPanel>
+        <TextBox x:Name="txtIp" Header="IP:"/>
+        <TextBox x:Name="txtPort" Header="Port:"/>
+        <TextBox x:Name="txtPw" Header="Password:"/>
+        <ToggleSwitch x:Name="swSettingsPw" Header="Require Password for Settings:" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <PasswordBox x:Name="txtSettingsPw" Header="Password for Settings:"/>
+        <TextBlock x:Name="errorTextBlock" Foreground="Red"/>
+    </StackPanel>
+</ContentDialog>
