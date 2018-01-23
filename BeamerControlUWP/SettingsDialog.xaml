@@ -20,5 +20,6 @@
         <ToggleSwitch x:Name="swSettingsPw" Header="Require Password for Settings:" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         <PasswordBox x:Name="txtSettingsPw" Header="Password for Settings:"/>
         <TextBlock x:Name="errorTextBlock" Foreground="Red"/>
+        <HyperlinkButton Content="Privacy Policy" NavigateUri="https://beamercontrol.azurewebsites.net/privacy.php" />
     </StackPanel>
 </ContentDialog>
