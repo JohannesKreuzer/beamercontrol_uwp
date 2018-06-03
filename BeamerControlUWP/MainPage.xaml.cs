@@ -216,6 +216,7 @@ namespace BeamerControlUWP
                     txtTime.Text = "Invalid Config";
                     btnMute.Visibility = Visibility.Collapsed;
                     btnPwr.Visibility = Visibility.Collapsed;
+                    btnInfo.Visibility = Visibility.Collapsed;
                 }
                 else
                 {
@@ -249,6 +250,7 @@ namespace BeamerControlUWP
                 txtTime.Text = "Invalid Config";
                 btnMute.Visibility = Visibility.Collapsed;
                 btnPwr.Visibility = Visibility.Collapsed;
+                btnInfo.Visibility = Visibility.Collapsed;
             }
             btndefBack = btnPwr.Background;
 
@@ -433,5 +435,32 @@ namespace BeamerControlUWP
                 }
         }
 
+        private async void btnInfo_Click(object sender, RoutedEventArgs e)
+        {
+            
+            //try
+            {
+                string info = "";
+                rv.PJLinkConnection c = connectBeamer();
+                info = await c.getProjectorInfo();
+                LampStatusCommand lscmd = new LampStatusCommand();
+                if (await c.sendCommand(lscmd) == Command.Response.SUCCESS)
+                {
+                    info += "\n";
+                    info += lscmd.dumpToString();
+                }
+
+                var view = ApplicationView.GetForCurrentView();
+                view.TryResizeView(new Size(328, 250));
+                InfoDialog dialog = new InfoDialog(info);
+                await dialog.ShowAsync();
+                view.TryResizeView(new Size(328, 100));
+            }
+            //catch (Exception)
+            {
+            }
+         
+
+        }
     }
 }

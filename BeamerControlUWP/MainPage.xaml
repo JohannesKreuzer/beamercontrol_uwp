@@ -88,8 +88,11 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal">
-                <Button x:Name="btnSettings" ToolTipService.ToolTip="Settings" BorderBrush="{x:Null}" VerticalAlignment="Top" Click="btnSettings_Click">
+                                <Button x:Name="btnSettings" ToolTipService.ToolTip="Settings" BorderBrush="{x:Null}" VerticalAlignment="Top" Click="btnSettings_Click">
                     <SymbolIcon Symbol="Setting"/>
+                </Button>
+                <Button x:Name="btnInfo" ToolTipService.ToolTip="Projector Infomation" BorderBrush="{x:Null}" VerticalAlignment="Top" Click="btnInfo_Click">
+                    <SymbolIcon Symbol="Caption"/>
                 </Button>
                 <Grid>
                     <Viewbox>

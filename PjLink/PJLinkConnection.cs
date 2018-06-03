@@ -202,16 +202,16 @@ namespace rv
             string toRet = ""; 
             ManufacturerNameCommand mnc = new ManufacturerNameCommand();
             if (await sendCommand(mnc) == Command.Response.SUCCESS)
-                toRet = mnc.Manufacturer; 
+                toRet = "Manuf.:\t"+mnc.Manufacturer; 
 
             ProductNameCommand prnc = new ProductNameCommand();
             if (await sendCommand(prnc) == Command.Response.SUCCESS)
-                toRet+= " " + prnc.ProductName;
+                toRet+= "\nModel:\t" + prnc.ProductName;
 
             ProjectorNameCommand pnc = new ProjectorNameCommand();
             if (await sendCommand(pnc) == Command.Response.SUCCESS) {
                 if (pnc.Name.Length > 0)
-                    toRet += " (" + pnc.Name + ")";
+                    toRet += "\nName:\t" + pnc.Name + "";
             }                
             return toRet; 
         }
